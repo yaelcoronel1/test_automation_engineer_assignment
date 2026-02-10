@@ -25,7 +25,7 @@ describe('Test Case Identities', () => {
 
         allure.addStep('Get identification code (CURP)');
         await sessionsPage.swipeRightUntilVisible(sessionsPage.identificationCode);
-        identificationCode = await sessionsPage.getTextFrom($(sessionsPage.identificationCode));
+        identificationCode = await sessionsPage.getTextFrom($(sessionsPage.identificationCode)); // Extracting the id code (CURP)
         await takeScreenshot('Get identification code');
         await homePage.clickOn($(sessionsPage.identificationCode));
 
@@ -41,12 +41,12 @@ describe('Test Case Identities', () => {
         await identitiesPage.refreshPage();
         await homePage.clickOn(identitiesPage.filterBtn);
         await homePage.clickOn(identitiesPage.idNumberBtn);
-        await homePage.enterValue(identitiesPage.idNumberInput, identificationCode)
+        await homePage.enterValue(identitiesPage.idNumberInput, identificationCode) // Entering the id code that has been extracted earlier into the filter input, asserting that the identity displayed with the filter search matches the one that we saved to the database 
         allure.addStep('Filtering by identification code (CURP)');
         await homePage.clickOn(identitiesPage.applyFilterBtn);
-        await expect(identitiesPage.notFoundText).not.toBeDisplayed();
+        await expect(identitiesPage.notFoundText).not.toBeDisplayed(); // Asserting that the "not found" text that appears when there are no identities stored is not displayed 
         const fullName = await sessionsPage.getTextFrom(identitiesPage.fullName);
         await takeScreenshot('Filtering by identification code');
-        await expect(fullName).toEqual('Yael Isay Rodriguez Coronel');
+        await expect(fullName).toEqual('Yael Isay Rodriguez Coronel'); // Asserting that the identity displayed matches the name of the identity saved to the database
     });
 });

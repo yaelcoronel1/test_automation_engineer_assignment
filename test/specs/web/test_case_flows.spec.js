@@ -26,19 +26,19 @@ describe('Test Case Flows', () => {
         const faceCapture = await new_flowPage.getCheckboxByIndexFaceCapture(3);
         await new_flowPage.clickOnCheckbox(idCapture);
         allure.addStep('Id Capture checkbox selected');
-        expect(await new_flowPage.isCheckboxActive(idCapture)).toBe(true);
+        expect(await new_flowPage.isCheckboxActive(idCapture)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Id Capture checkbox selected');
         await new_flowPage.idValidationBtn.click();
         allure.addStep('Id Validation checkbox selected');
-        expect(await new_flowPage.isCheckboxActive(new_flowPage.idValidationBtn)).toBe(true);
+        expect(await new_flowPage.isCheckboxActive(new_flowPage.idValidationBtn)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Id validation checkbox selected');
         await new_flowPage.clickOnCheckbox(faceCapture);
         allure.addStep('Face Capture checkbox selected');
-        expect(await new_flowPage.isCheckboxActive(faceCapture)).toBe(true);
+        expect(await new_flowPage.isCheckboxActive(faceCapture)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Face Capture checkbox selected');
-        await homePage.clickOn(new_flowPage.editNameBtn);
+        await homePage.clickOn(new_flowPage.editNameBtn); // Clicking on the edit name button, this step is included because sometimes when clicking the save changes button directly it does not respond consistenly, often times requiring multiple clicks or refreshes for it to activate        
         await homePage.hideKeyboardIfVisible();
-        await homePage.clickOn(new_flowPage.saveNameBtn);
+        await homePage.clickOn(new_flowPage.saveNameBtn); // By saving the default name and then clicking on the save changes button it activates every time
         await homePage.clickOn(new_flowPage.saveChangesBtn);
         await homePage.clickOn(new_flowPage.xBtn);
         await homePage.clickOn(new_flowPage.activeFlowBtn);
@@ -48,8 +48,8 @@ describe('Test Case Flows', () => {
         const activeStatus = await sessionsPage.getTextFrom(flowsPage.activeStatusText);
         const newFlowName = await sessionsPage.getTextFrom(flowsPage.newFlowName);
         allure.addStep('New flow creation validation');
-        await expect(activeStatus).toEqual('ACTIVE');
-        await expect(newFlowName).toEqual('New flow');
+        await expect(activeStatus).toEqual('ACTIVE'); // Asserting that the status of the new flow is indeed ACTIVE
+        await expect(newFlowName).toEqual('New flow'); // Asserting that the name of the new flow corresponds with the default one
         await takeScreenshot('New flow creation validation');
     });
 });

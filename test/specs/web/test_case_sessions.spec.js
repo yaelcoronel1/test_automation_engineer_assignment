@@ -24,15 +24,15 @@ describe('Test Case Sessions', () => {
 
         allure.addStep('Get full table name');
         await sessionsPage.swipeRightUntilVisible(sessionsPage.fullName);
-        fullTableName = await sessionsPage.getTextFrom($(sessionsPage.fullName));
+        fullTableName = await sessionsPage.getTextFrom($(sessionsPage.fullName)); // Extracting the full table name
         await takeScreenshot('Get full table name');
         await homePage.clickOn($(sessionsPage.fullName));
         
         allure.addStep('Full OCR name and full table name validation');
         await session_informationPage.scrollToElement(session_informationPage.fullOcrName);
         await takeScreenshot('Full OCR name and full table name validation');
-        const fullOcrName = await sessionsPage.getTextFrom(session_informationPage.fullOcrName);
-        expect(fullTableName.toLowerCase()).toEqual(fullOcrName.toLowerCase());
+        const fullOcrName = await sessionsPage.getTextFrom(session_informationPage.fullOcrName); // Extracting the full ocr name
+        expect(fullTableName.toLowerCase()).toEqual(fullOcrName.toLowerCase()); // Asserting that both the full table name and the full ocr name are the same, they do match but the full ocr name is in full caps while the full table name is not
     });
 
 });
