@@ -2,7 +2,7 @@
 
 > **Status:** Cleaned & stabilized project. A pre-generated Allure report (`/allure-report`) is included in the repository showing a successful run of the test suite.
 
-This repository contains 3 automation test cases using **WebdriverIO** and **Appium**, following a Page Object Model architecture. The project includes a full ready-to-open Allure HTML report in `./allure-report` and a full automation stack that can be run locally.
+This repository contains 3 automation test cases using **JavaScript**, **WebdriverIO** and **Appium**, following a Page Object Model architecture. The project includes a full ready-to-open Allure HTML report in `./allure-report` and a full automation stack that can be run locally.
 
 ---
 
