@@ -130,7 +130,12 @@ adb devices
 # should list a device id
 ```
 
-3. For emulator use, start an Android emulator from Android Studio or `avdmanager` and confirm `adb devices` lists the emulator.
+3. For emulator use, start an Android emulator from Android Studio or `avdmanager` and confirm `adb devices` lists the emulator. Also update deviceName in capabilities at wdio.conf.cjs.
+
+```bash
+'appium:deviceName': 'emulator-5554',
+# replace 'emulator-5554 with the adb devices output'
+```
 
 4. If using a real device, ensure Chrome is installed and note its version (Chrome version determines chromedriver selection):
 
