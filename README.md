@@ -25,13 +25,14 @@ repo-root/
 ├── wdio.conf.cjs           
 ├── package.json
 ├── package-lock.json
-├── README.md                       
+├── README.md               
+├── allure-results/          
 ├── allure-report/           
 ├── test/
-    ├── specs/               # test specs 
-    ├── screen_objects/      # Page Objects 
-    └── helpers/             # test helpers (allure helper)
-           
+│   ├── specs/               # test specs 
+│   ├── screen_objects/      # Page Objects 
+│   └── helpers/             # test helpers (allure helper)
+└── chromedrivers/           
 
 ```
 
