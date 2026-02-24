@@ -1,6 +1,6 @@
 class newFlowPage{
     get idCaptureBtn(){
-        return 'div.group.relative input'
+        return $$('div.group.relative input')[2];
     }
 
     get idValidationBtn(){
@@ -8,11 +8,7 @@ class newFlowPage{
     }
 
     get faceCaptureBtn(){
-        return 'div.group.relative input'
-    }
-
-     get closeBtn(){
-        return 'svg.modal-dialog-close'
+        return $$('div.group.relative input')[3];
     }
 
     get saveChangesBtn(){
@@ -45,25 +41,9 @@ class newFlowPage{
 }
 
 
-async clickOnCheckbox(selectorOrElement, index = undefined, timeout = 8000) {
+async clickOnCheckbox(element, timeout = 8000) {
   let el;
-
-  if (typeof selectorOrElement === 'string') {
-    if (typeof index === 'number') {
-      const elements = await $$(selectorOrElement);
-      if (!elements.length) {
-        throw new Error(`clickOn: no elements found for selector "${selectorOrElement}"`);
-      }
-      if (index >= elements.length) {
-        throw new Error(`clickOn: index ${index} out of bounds (found ${elements.length})`);
-      }
-      el = elements[index];
-    } else {
-      el = await $(selectorOrElement);
-    }
-  } else {
-    el = selectorOrElement;
-  }
+  el = element;
 
   await el.waitForExist({ timeout });
   await el.scrollIntoView();
@@ -84,54 +64,6 @@ async clickOnCheckbox(selectorOrElement, index = undefined, timeout = 8000) {
     }
   }
 }
-
-    async getCheckboxByIndexIdCapture(index, timeout = 10000) {
-  await browser.waitUntil(
-    async () => {
-      const els = await $$(this.idCaptureBtn);
-      return els.length > index;
-    },
-    {
-      timeout,
-      timeoutMsg: `Expected at least ${index + 1} checkboxes to be present`
-    }
-  );
-
-  const elements = await $$(this.idCaptureBtn);
-  return elements[index];
-}
-
-  async getCheckboxByIndexIdValidation(index, timeout = 10000) {
-  await browser.waitUntil(
-    async () => {
-      const els = await $$(this.idValidationBtn);
-      return els.length > index;
-    },
-    {
-      timeout,
-      timeoutMsg: `Expected at least ${index + 1} checkboxes to be present`
-    }
-  );
-
-  const elements = await $$(this.idValidationBtn);
-  return elements[index];
-}
-
-  async getCheckboxByIndexFaceCapture(index, timeout = 10000) {
-  await browser.waitUntil(
-    async () => {
-      const els = await $$(this.faceCaptureBtn);
-      return els.length > index;
-    },
-    {
-      timeout,
-      timeoutMsg: `Expected at least ${index + 1} checkboxes to be present`
-    }
-  );
-
-  const elements = await $$(this.faceCaptureBtn);
-  return elements[index];
-}
-}
+}  
 
 export default new newFlowPage();

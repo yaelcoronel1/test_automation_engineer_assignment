@@ -24,9 +24,9 @@ describe('Test Case Sessions', () => {
 
         allure.addStep('Get full table name');
         await sessionsPage.swipeRightUntilVisible(sessionsPage.fullName);
-        fullTableName = await sessionsPage.getTextFrom($(sessionsPage.fullName)); // Extracting the full table name
+        fullTableName = await sessionsPage.getTextFrom(sessionsPage.fullName); // Extracting the full table name
         await takeScreenshot('Get full table name');
-        await homePage.clickOn($(sessionsPage.fullName));
+        await homePage.clickOn(sessionsPage.fullName);
         
         allure.addStep('Full OCR name and full table name validation');
         await session_informationPage.scrollToElement(session_informationPage.fullOcrName);

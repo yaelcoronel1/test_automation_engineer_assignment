@@ -1,8 +1,6 @@
-# Test Automation Engineer assignment — Mobile Automation
+# Appium WebDriverIO — Mobile Automation
 
-> **Status:** Cleaned & stabilized project. A pre-generated Allure report (`/allure-report`) is included in the repository showing a successful run of the test suite.
-
-This repository contains 3 automation test cases using **JavaScript**, **WebdriverIO** and **Appium**, following a Page Object Model architecture. The project includes a full ready-to-open Allure HTML report in `./allure-report` and a full automation stack that can be run locally.
+This repository contains an automation testing framework using **JavaScript**, **WebdriverIO** and **Appium**, following a Page Object Model architecture. The project includes a full automation stack that can be run locally.
 
 ---
 
@@ -27,14 +25,13 @@ repo-root/
 ├── wdio.conf.cjs           
 ├── package.json
 ├── package-lock.json
-├── README.md               
-├── allure-results/          
-├── allure-report/           # pre-generated Allure HTML report (committed as project deliverable)
+├── README.md                       
+├── allure-report/           
 ├── test/
-│   ├── specs/               # test specs 
-│   ├── screen_objects/      # Page Objects 
-│   └── helpers/             # test helpers (allure helper)
-└── chromedrivers/           
+    ├── specs/               # test specs 
+    ├── screen_objects/      # Page Objects 
+    └── helpers/             # test helpers (allure helper)
+           
 
 ```
 
@@ -200,20 +197,6 @@ WDIO will print Appium server output in the test log if it spawned Appium.
 
 ---
 
-## Allure reports (existing + generate / open)
-
-### View the pre-generated report included in the repo
-
-A complete Allure HTML report is included at `./allure-report` as part of the submission. To open it interactively using the Allure CLI (preferred):
-
-```bash
-npx allure open ./allure-report
-```
-
-This command will launch a local web server and open the pre-generated report in your browser.
-
-> Alternative: if you do not want to use Allure CLI, open `allure-report/index.html` with your browser directly. Some features (like attachments) may not work correctly without a webserver.
-
 ### Generate a fresh Allure report after running tests
 
 After a test run (Allure results are written to `./allure-results`), generate and open a new HTML report:
@@ -260,7 +243,6 @@ npm run allure:open
 
 ## Repository hygiene & final notes
 
-- The repository includes a committed `allure-report/` HTML report as a project deliverable
 - If you plan to run tests on CI (GitHub Actions or similar), set up a runner with Android SDK and Appium installed, or use device cloud infrastructure.
 
 ---

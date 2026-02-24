@@ -7,7 +7,6 @@ import { takeScreenshot } from '../../helpers/allure.helper.js';
 import allure from '@wdio/allure-reporter';
 
 describe('Test Case Identities', () => {
-    let identificationCode;
 
     before('Home page login', async () => {
         await homePage.open();
@@ -25,9 +24,9 @@ describe('Test Case Identities', () => {
 
         allure.addStep('Get identification code (CURP)');
         await sessionsPage.swipeRightUntilVisible(sessionsPage.identificationCode);
-        identificationCode = await sessionsPage.getTextFrom($(sessionsPage.identificationCode)); // Extracting the id code (CURP)
+        const identificationCode = await sessionsPage.getTextFrom(sessionsPage.identificationCode); // Extracting the id code (CURP)
         await takeScreenshot('Get identification code');
-        await homePage.clickOn($(sessionsPage.identificationCode));
+        await homePage.clickOn(sessionsPage.identificationCode);
 
         allure.addStep('Add face to database');
         await homePage.clickOn(session_informationPage.addToDatabase);

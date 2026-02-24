@@ -7,7 +7,7 @@ exports.config = {
   runner: 'local',
   port: 4723,
   specs: [
-    'test/specs/web/*flows.spec.js'
+    'test/specs/web/*identities.spec.js'
   ],
   exclude: [],
   maxInstances: 1, 
@@ -21,8 +21,7 @@ exports.config = {
     'appium:noReset': true,
     'appium:autoGrantPermissions': true,
     'wdio:enforceWebDriverClassic': true,
-    'appium:chromedriverExecutableDir': projectChromedir,
-    'appium:chromedriverChromeMappingFile': mappingFile,
+    'appium:chromedriverAutodownload': true
   }],
 
   logLevel: 'info',
@@ -35,6 +34,7 @@ exports.config = {
     ['appium', {
       command: 'appium',
       args: {
+        relaxedSecurity: true, 
         allowInsecure: ['*:chromedriver_autodownload'],
       },
     }]

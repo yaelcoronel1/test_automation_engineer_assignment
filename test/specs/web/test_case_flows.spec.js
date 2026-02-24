@@ -22,19 +22,17 @@ describe('Test Case Flows', () => {
         await homePage.clickOn(dashboardPage.closeMenuBtn);
         await homePage.clickOn(flowsPage.newFlowBtn);
 
-        const idCapture = await new_flowPage.getCheckboxByIndexIdCapture(2);
-        const faceCapture = await new_flowPage.getCheckboxByIndexFaceCapture(3);
-        await new_flowPage.clickOnCheckbox(idCapture);
+        await new_flowPage.clickOnCheckbox(new_flowPage.idCaptureBtn);
         allure.addStep('Id Capture checkbox selected');
-        expect(await new_flowPage.isCheckboxActive(idCapture)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
+        expect(await new_flowPage.isCheckboxActive(new_flowPage.idCaptureBtn)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Id Capture checkbox selected');
-        await new_flowPage.idValidationBtn.click();
+        await new_flowPage.clickOnCheckbox(new_flowPage.idValidationBtn);
         allure.addStep('Id Validation checkbox selected');
         expect(await new_flowPage.isCheckboxActive(new_flowPage.idValidationBtn)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Id validation checkbox selected');
-        await new_flowPage.clickOnCheckbox(faceCapture);
+        await new_flowPage.clickOnCheckbox(new_flowPage.faceCaptureBtn);
         allure.addStep('Face Capture checkbox selected');
-        expect(await new_flowPage.isCheckboxActive(faceCapture)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
+        expect(await new_flowPage.isCheckboxActive(new_flowPage.faceCaptureBtn)).toBe(true); // Asserting that the checkbox is indeed active after clicking on it
         await takeScreenshot('Face Capture checkbox selected');
         await homePage.clickOn(new_flowPage.editNameBtn); // Clicking on the edit name button, this step is included because sometimes when clicking the save changes button directly it does not respond consistenly, often times requiring multiple clicks or refreshes for it to activate        
         await homePage.hideKeyboardIfVisible();
